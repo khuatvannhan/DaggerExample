@@ -1,7 +1,7 @@
 package com.app.exampledagger.di.module
 
 import com.app.exampledagger.BuildConfig
-import com.app.exampledagger.data.source.remote.api.ApiStudentInterface
+import com.app.exampledagger.api.ApiStudentInterface
 import com.app.exampledagger.util.URL
 import dagger.Module
 import dagger.Provides

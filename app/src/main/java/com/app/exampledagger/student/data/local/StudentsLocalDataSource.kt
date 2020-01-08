@@ -1,16 +1,16 @@
-package com.app.exampledagger.data.source.local
+package com.app.exampledagger.student.data.local
 
-import com.app.exampledagger.data.source.Result
-import com.app.exampledagger.data.source.Student
-import com.app.exampledagger.data.source.StudentsDataSource
+import com.app.exampledagger.data.Result
+import com.app.exampledagger.student.data.Student
+import com.app.exampledagger.student.data.StudentsDataSource
 
 class StudentsLocalDataSource internal constructor(private val studentsDao: StudentsDao):
-StudentsDataSource{
+    StudentsDataSource {
     override fun getStudents(): Result<List<Student>> {
         return try {
-            Result.Success(studentsDao.getStudents())
+            Result.success(studentsDao.getStudents())
         } catch (e: Exception) {
-            Result.Error(e)
+            Result.error(e.message ?: "")
         }
     }
 
@@ -18,12 +18,12 @@ StudentsDataSource{
         return try {
             val student = studentsDao.getStudentById(studentId)
             if (student != null) {
-                Result.Success(student)
+                Result.success(student)
             } else {
-                Result.Error(Exception("Student not found!"))
+                Result.error("Student not found!")
             }
         } catch (e: Exception) {
-            Result.Error(e)
+            Result.error(e.message ?: "")
         }
     }
 

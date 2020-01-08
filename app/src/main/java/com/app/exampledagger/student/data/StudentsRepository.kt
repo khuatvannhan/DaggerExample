@@ -1,4 +1,7 @@
-package com.app.exampledagger.data.source
+package com.app.exampledagger.student.data
+
+import com.app.exampledagger.data.Result
+import com.app.exampledagger.student.data.Student
 
 interface StudentsRepository {
     fun getStudents(forceUpdate: Boolean = false): Result<List<Student>>

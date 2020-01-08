@@ -1,4 +1,4 @@
-package com.app.exampledagger.data.source
+package com.app.exampledagger.student.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

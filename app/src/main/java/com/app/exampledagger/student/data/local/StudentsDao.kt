@@ -1,7 +1,7 @@
-package com.app.exampledagger.data.source.local
+package com.app.exampledagger.student.data.local
 
 import androidx.room.*
-import com.app.exampledagger.data.source.Student
+import com.app.exampledagger.student.data.Student
 
 /**
  * Data Access Object for the students table.
