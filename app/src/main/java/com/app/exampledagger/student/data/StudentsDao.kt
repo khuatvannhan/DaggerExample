@@ -1,7 +1,8 @@
-package com.app.exampledagger.student.data.local
+package com.app.exampledagger.student.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.app.exampledagger.student.data.Student
+import com.app.exampledagger.student.data.module.Student
 
 /**
  * Data Access Object for the students table.
@@ -14,7 +15,7 @@ interface StudentsDao {
      * @return all students.
      */
     @Query("SELECT * FROM Students")
-    fun getStudents(): List<Student>
+    fun getStudents(): LiveData<Student>
 
     /**
      * Select a student by id.

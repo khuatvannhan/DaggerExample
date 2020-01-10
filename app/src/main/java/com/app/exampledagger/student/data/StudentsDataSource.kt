@@ -1,12 +1,12 @@
 package com.app.exampledagger.student.data
 
-import com.app.exampledagger.data.Result
-import com.app.exampledagger.student.data.Student
+import com.app.exampledagger.data.Resource
+import com.app.exampledagger.student.data.module.Student
 
 interface StudentsDataSource {
-    fun getStudents(): Result<List<Student>>
+    fun getStudents(): Resource<List<Student>>
 
-    fun getStudent(studentId: Int): Result<Student>
+    fun getStudent(studentId: Int): Resource<Student>
 
     fun saveStudent(student: Student)
 

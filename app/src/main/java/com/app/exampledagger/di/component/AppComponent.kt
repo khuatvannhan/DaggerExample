@@ -1,22 +1,23 @@
 package com.app.exampledagger.di.component
 
-import com.app.exampledagger.BlankFragment
-import com.app.exampledagger.MainActivity
-import com.app.exampledagger.di.module.ApplicationModule
+import android.app.Application
 import com.app.exampledagger.di.module.DatabaseModule
 import com.app.exampledagger.di.module.HttpModule
 import com.app.exampledagger.di.module.RxThreadModule
+import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(
-    ApplicationModule::class,
-    DatabaseModule::class,
-    HttpModule::class,
-    RxThreadModule::class))
+@Component(modules = [DatabaseModule::class, HttpModule::class, RxThreadModule::class])
 interface AppComponent {
-    fun inject(fragment: BlankFragment)
+    @Component.Builder
+    interface Builder {
+        @BindsInstance
+        fun application(application: Application?): Builder?
 
-    fun inject(activity: MainActivity)
+        fun build(): AppComponent?
+    }
+
+//    fun inject(nyTimesApp: NYTimesApp?)
 }
