@@ -3,8 +3,6 @@ package com.app.exampledagger.student.data
 import androidx.lifecycle.LiveData
 import com.app.exampledagger.data.Resource
 import com.app.exampledagger.student.data.module.Student
-import dagger.Module
-import dagger.Provides
 
 interface StudentsRepository {
     fun getStudents(forceUpdate: Boolean = false): LiveData<Resource<Student>>

@@ -3,6 +3,7 @@ package com.app.exampledagger
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.app.exampledagger.student.StudentFragment
 import com.app.exampledagger.util.FragmentUtils
 import com.app.exampledagger.util.FragmentUtils.TRANSITION_NONE
 import dagger.android.AndroidInjection
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
         FragmentUtils.replaceFragment(
             this,
-            BlankFragment.newInstance(),
+            StudentFragment.newInstance(),
             R.id.fragContainer,
             false,
             TRANSITION_NONE

@@ -2,8 +2,8 @@ package com.app.exampledagger.student.data
 
 import androidx.annotation.NonNull
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import com.app.exampledagger.api.ApiInterface
+import com.app.exampledagger.api.NetworkBoundResource
 import com.app.exampledagger.data.Resource
 import com.app.exampledagger.student.data.module.Student
 import retrofit2.Call

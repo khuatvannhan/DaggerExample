@@ -1,8 +1,8 @@
 package com.app.exampledagger.di.module
 
+import com.app.exampledagger.api.ApiConstants
 import com.app.exampledagger.api.ApiInterface
 import com.app.exampledagger.api.AuthInterceptor
-import com.app.exampledagger.student.data.ApiConstants
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

@@ -1,4 +1,4 @@
-package com.app.exampledagger.student.data
+package com.app.exampledagger.api
 
 object ApiConstants {
     const val BASE_URL = "https://jsonplaceholder.typicode.com/"
