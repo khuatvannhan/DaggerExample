@@ -3,8 +3,7 @@ package com.app.exampledagger.di.component
 import android.app.Application
 import com.app.exampledagger.StudentApp
 import com.app.exampledagger.di.builder.ActivityBuilderModule
-import com.app.exampledagger.di.module.AppModel
-import com.app.exampledagger.di.module.ViewModelModule
+import com.app.exampledagger.di.module.AppModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
@@ -14,7 +13,7 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidInjectionModule::class,
-        AppModel::class,
+        AppModule::class,
         ActivityBuilderModule::class]
 )
 interface AppComponent {

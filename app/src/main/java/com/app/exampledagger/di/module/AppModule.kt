@@ -8,5 +8,5 @@ import dagger.Module
         HttpModule::class,
         RxThreadModule::class]
 )
-class AppModel {
+class AppModule {
 }

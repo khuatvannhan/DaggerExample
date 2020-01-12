@@ -6,7 +6,6 @@ import androidx.annotation.MainThread
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import com.app.exampledagger.R
 import com.app.exampledagger.data.Resource
 import com.google.gson.stream.MalformedJsonException
 import retrofit2.Call
@@ -32,22 +31,23 @@ abstract class NetworkBoundResource<ResultType, RequestType> @MainThread protect
         // Always load the data from DB intially so that we have
         val dbSource = loadFromDb()
         // Fetch the data from network and add it to the resource
-        result.addSource(dbSource) { data: ResultType ->
-            result.removeSource(dbSource)
-            if (shouldFetch()) {
-                fetchFromNetwork(dbSource)
-            } else {
-                result.addSource(
-                    dbSource
-                ) { newData: ResultType ->
-                    if (null != newData) result.postValue(
-                        Resource.success(
-                            newData
-                        )
-                    )
-                }
-            }
-        }
+        fetchFromNetwork(dbSource)
+//        result.addSource(dbSource) { data: ResultType ->
+//            result.removeSource(dbSource)
+//            if (shouldFetch()) {
+//                fetchFromNetwork(dbSource)
+//            } else {
+//                result.addSource(
+//                    dbSource
+//                ) { newData: ResultType ->
+//                    if (null != newData) result.postValue(
+//                        Resource.success(
+//                            newData
+//                        )
+//                    )
+//                }
+//            }
+//        }
     }
 
     /**

@@ -36,6 +36,8 @@ class BlankFragment : Fragment() {
         AndroidSupportInjection.inject(this)
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProviders.of(this, viewModelFactory)[MainViewModel::class.java]
+        val add = viewModel.getLiveData()
+        Log.d(TAG, " sdfsdfsdfsdfsdfsdf ${add.value?.data}")
     }
 
     override fun onCreateView(
