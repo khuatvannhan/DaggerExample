@@ -1,5 +1,6 @@
 package com.app.exampledagger.di.builder
 
+import com.app.exampledagger.BlankFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -12,8 +13,7 @@ abstract class FragmentBuilderModule {
 //    @ContributesAndroidInjector
 //    abstract fun contributeArticleListFragment(): ArticleListFragment?
 //
-//    @SuppressWarnings("unused")
-//    @ContributesAndroidInjector
-//    abstract fun contributeArticleDetailFragment(): ArticleDetailFragment?
-
+    @SuppressWarnings("unused")
+    @ContributesAndroidInjector
+    abstract fun contributeFragment(): BlankFragment
 }

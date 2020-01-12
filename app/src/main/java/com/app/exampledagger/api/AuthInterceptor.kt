@@ -3,6 +3,7 @@ package com.app.exampledagger.api
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
+import javax.inject.Inject
 
 /**
  *  A {@see RequestInterceptor} that adds an auth token to request

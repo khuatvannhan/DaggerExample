@@ -9,7 +9,7 @@ import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
-open class RxThreadModule {
+class RxThreadModule {
     companion object {
         const val mainThread = "mainThread"
         const val ioThread = "ioThread"

@@ -12,7 +12,7 @@ import javax.inject.Inject
 class StudentsRepositoryImpl @Inject constructor(
     private val apiService: ApiInterface,
     private val studentDao: StudentsDao
-) : StudentsRepository {
+) {
 
     private var networkBoundResource: NetworkBoundResource<Student, Student> = object :
         NetworkBoundResource<Student, Student>() {
@@ -31,19 +31,19 @@ class StudentsRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun getStudents(forceUpdate: Boolean): LiveData<Resource<Student>> {
+     fun getStudents(forceUpdate: Boolean): LiveData<Resource<Student>> {
         return networkBoundResource.asLiveData
     }
 
-    override fun getStudent(studentId: Int, forceUpdate: Boolean): LiveData<Resource<Student>> {
+     fun getStudent(studentId: Int, forceUpdate: Boolean): LiveData<Resource<Student>> {
         return networkBoundResource.result
     }
 
-    override fun saveStudent(student: Student) {
+     fun saveStudent(student: Student) {
         studentDao.insertStudent(student)
     }
 
-    override fun deleteStudent(studentId: Int) {
+     fun deleteStudent(studentId: Int) {
         studentDao.deleteStudentById(studentId)
     }
 }
