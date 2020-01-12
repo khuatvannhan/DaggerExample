@@ -17,10 +17,9 @@ import javax.inject.Singleton
  */
 @Module
 class HttpModule {
-
-    @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient? {
+    @Provides
+    fun provideOkHttpClient(): OkHttpClient {
         val okHttpClient = OkHttpClient.Builder()
         okHttpClient.connectTimeout(
             ApiConstants.CONNECT_TIMEOUT,
@@ -39,9 +38,9 @@ class HttpModule {
         return okHttpClient.build()
     }
 
-    @Provides
     @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient): ApiInterface? {
+    @Provides
+    fun provideRetrofit(okHttpClient: OkHttpClient): ApiInterface {
         val retrofit = Retrofit.Builder()
             .baseUrl(ApiConstants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())

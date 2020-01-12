@@ -3,7 +3,8 @@ package com.app.exampledagger.di.module
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.app.exampledagger.MainViewModel
-import com.app.exampledagger.student.data.StudentsRepositoryImpl
+import com.app.exampledagger.di.ViewModelFactory
+import com.app.exampledagger.di.ViewModelKey
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

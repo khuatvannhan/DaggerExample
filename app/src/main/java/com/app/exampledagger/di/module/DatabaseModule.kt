@@ -9,13 +9,13 @@ import javax.inject.Singleton
 
 @Module
 class DatabaseModule {
-    @Provides
     @Singleton
+    @Provides
     fun provideStudentDatabase(app: Application) = Room.databaseBuilder(app,
         AppDatabase::class.java, "Students.db").build()
 
-    @Provides
     @Singleton
+    @Provides
     fun provideStudentDao(db: AppDatabase) = db.studentDao()
 
    /* @Singleton
