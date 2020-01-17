@@ -14,36 +14,38 @@ class StudentsRepositoryImpl @Inject constructor(
     private val studentDao: StudentsDao
 ) {
 
-    private var networkBoundResource: NetworkBoundResource<Student, Student> = object :
-        NetworkBoundResource<Student, Student>() {
-        override fun saveCallResult(item: Student) {
-            studentDao.insertStudent(item)
+    private lateinit var networkBoundResource: NetworkBoundResource<Student, Student>
+
+    fun getStudents(forceUpdate: Boolean): LiveData<Resource<Student>> {
+        networkBoundResource = object :
+            NetworkBoundResource<Student, Student>() {
+            override fun saveCallResult(item: Student) {
+                studentDao.insertStudent(item)
+            }
+
+            @NonNull
+            override fun loadFromDb(): LiveData<Student> {
+                return studentDao.getStudents()
+            }
+
+            @NonNull
+            override fun createCall(): Call<Student> {
+                return apiService.getStudent()
+            }
         }
 
-        @NonNull
-        override fun loadFromDb(): LiveData<Student> {
-            return studentDao.getStudents()
-        }
-
-        @NonNull
-        override fun createCall(): Call<Student> {
-            return apiService.getStudent()
-        }
-    }
-
-     fun getStudents(forceUpdate: Boolean): LiveData<Resource<Student>> {
         return networkBoundResource.asLiveData
     }
 
-     fun getStudent(studentId: Int, forceUpdate: Boolean): LiveData<Resource<Student>> {
+    fun getStudent(studentId: Int, forceUpdate: Boolean): LiveData<Resource<Student>> {
         return networkBoundResource.result
     }
 
-     fun saveStudent(student: Student) {
+    fun saveStudent(student: Student) {
         studentDao.insertStudent(student)
     }
 
-     fun deleteStudent(studentId: Int) {
+    fun deleteStudent(studentId: Int) {
         studentDao.deleteStudentById(studentId)
     }
 }

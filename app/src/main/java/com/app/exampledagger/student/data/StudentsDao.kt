@@ -14,7 +14,7 @@ interface StudentsDao {
      *
      * @return all students.
      */
-    @Query("SELECT * FROM Students")
+    @Query("SELECT * FROM students")
     fun getStudents(): LiveData<Student>
 
     /**
@@ -23,7 +23,7 @@ interface StudentsDao {
      * @param studentId the student id.
      * @return the student with studentId.
      */
-    @Query("SELECT * FROM Students WHERE id = :studentId")
+    @Query("SELECT * FROM students WHERE id = :studentId")
     fun getStudentById(studentId: Int): Student?
 
     /**
@@ -47,12 +47,12 @@ interface StudentsDao {
      * Delete a student by id
      * @return the number of students deleted. This should always be 1.
      */
-    @Query("DELETE FROM Students WHERE id =:studentId")
+    @Query("DELETE FROM students WHERE id =:studentId")
     fun deleteStudentById(studentId: Int): Int
 
     /**
      * Delete all students.
      */
-    @Query("DELETE FROM Students")
+    @Query("DELETE FROM students")
     fun deleteStudents()
 }

@@ -5,9 +5,10 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "Students")
+@Entity(tableName = "students")
 data class Student @JvmOverloads constructor(
     @PrimaryKey
+    @ColumnInfo(name = "studentId") val studentId: Int,
     @ColumnInfo(name = "id") val id: Int,
     @ColumnInfo(name = "userId") val userId: Int,
     @ColumnInfo(name = "title") val title: String,
